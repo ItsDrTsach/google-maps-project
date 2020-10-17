@@ -39,7 +39,7 @@ jobs:
         run: npm ci
         working-directory: ./react-version
       - name: start the react App
-        run: npm ci
+        run: npm start
         working-directory: ./react-version
       - name: wait for the browser
         run: npx wait-on http://localhost:3000
