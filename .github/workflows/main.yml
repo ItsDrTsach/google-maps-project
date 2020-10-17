@@ -39,10 +39,7 @@ jobs:
         run: npm install --no-optional
         working-directory: ./react-version
       - name: start the react App
-        run: npm start
-        working-directory: ./react-version
-      - name: wait for the browser
-        run: npx wait-on http://localhost:3000
+        run: npm start && npx wait-on http://localhost:3000
         working-directory: ./react-version
       - name: run cypress tests
         run: npm cypress run
