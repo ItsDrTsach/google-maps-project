@@ -29,6 +29,7 @@ jobs:
       matrix:
         node-version: [10.x, 12.x, 8.x]
     steps:
+      -
       # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
       # - name: install client dependencies , start the react app and test
@@ -38,6 +39,10 @@ jobs:
       #     npx wait-on http://localhost:3000
       #     npm cypress run
       #   working-directory: ./react-version/
+      - name: Run challenge (Node.js ${{ matrix.node-version }})
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: install server dependencies , migrate db and run tests
         run: |
           cd ./server
