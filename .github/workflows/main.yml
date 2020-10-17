@@ -39,9 +39,10 @@ jobs:
         run: npm ci
         working-directory: ./server
       - name: setup the DB for the test
-        run: npm run setup-db
+        run: npx sequelize db:create && npx sequelize db:migrate
+        working-directory: ./server
         env:
-          NODE_ENV: test
+          NODE_ENV: "test"
       - name: test backend
         run: npm run test-back
       - name: test frontend
