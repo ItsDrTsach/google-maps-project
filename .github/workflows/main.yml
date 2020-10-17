@@ -47,12 +47,12 @@ jobs:
         env:
           NODE_ENV: "test"
         working-directory: ./server
-      - name: install server dependencies
+      - name: create and migrate DB
         run: npm run init
         env:
           NODE_ENV: "test"
         working-directory: ./server
-      - name: install server dependencies
+      - name: run tests
         run: npm run test
         env:
           NODE_ENV: "test"
