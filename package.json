@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup-db":"cd ./server && npx sequelize db:create && npx sequelize db:migrate",
     "test-back": "cd ./server && npm run test ",
     "test-front": "cd ./react-version && npm run test"
   },
