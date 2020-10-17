@@ -42,12 +42,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install server dependencies , migrate db and run tests
-        run: |
-          npm ci &&
-          npx sequelize db:create &&
-          npx sequelize db:migrate &&
-          npm run test
+      - name: install server dependencies
+        run: npm ci
+        env:
+          NODE_ENV: "test"
+        working-directory: ./server
+      - name: install server dependencies
+        run: npm run init
+        env:
+          NODE_ENV: "test"
+        working-directory: ./server
+      - name: install server dependencies
+        run: npm run test
         env:
           NODE_ENV: "test"
         working-directory: ./server

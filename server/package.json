@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon .",
     "test": "node_modules/.bin/jest --",
-    "migrate": "node_modules/.bin/sequelize db:migrate"
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "init": "NODE_ENV=test npx sequelize db:create && NODE_ENV=test npx sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
