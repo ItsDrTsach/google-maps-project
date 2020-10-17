@@ -29,8 +29,8 @@ jobs:
       matrix:
         node-version: [10.x, 12.x, 8.x]
     steps:
-      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       # - name: install client dependencies , start the react app and test
       #   run: |
       #     npm i
@@ -50,4 +50,4 @@ jobs:
           npm run test
         env:
           NODE_ENV: "test"
-        working-directory: ./server/
+        working-directory: ./server
