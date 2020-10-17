@@ -54,6 +54,4 @@ jobs:
         working-directory: ./server
       - name: run tests
         run: npm run test
-        env:
-          NODE_ENV: "test"
         working-directory: ./server
