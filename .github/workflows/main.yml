@@ -33,11 +33,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: install client dependencies , start the react app and test
         run: |
-          npm ci
+          npm i
           npm start
           npx wait-on http://localhost:3000
           npm cypress run
-        working-directory: ./react-version
+        working-directory: ./react-version/
       - name: install server dependencies , migrate db and run tests
         run: |
           npm ci
