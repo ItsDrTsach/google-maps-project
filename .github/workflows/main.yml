@@ -38,13 +38,13 @@ jobs:
       #     npx wait-on http://localhost:3000
       #     npm cypress run
       #   working-directory: ./react-version/
-      - name: Run challenge (Node.js ${{ matrix.node-version }})
+      - name: Setup node  (Node.js ${{ matrix.node-version }})
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: install server dependencies , migrate db and run tests
         run: |
-          cd ./server
+          cd .\server\
           npm ci
           npx sequelize db:create
           npx sequelize db:migrate
