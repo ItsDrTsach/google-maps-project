@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install client dependencies
-        run: npm ci
+        run: npm npm install --no-optional
         working-directory: ./react-version
       - name: start the react App
         run: npm start
