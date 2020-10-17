@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI-SERVER
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -35,14 +35,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install client dependencies
-        run: npm install --no-optional
-        working-directory: ./react-version
-      - name: start the react App
-        run: npm start && npx wait-on http://localhost:3000 && npx cypress run
-        working-directory: ./react-version
-        # run: npm cypress run
-        # working-directory: ./react-version
+      # - name: install client dependencies
+      #   run: npm install --no-optional
+      #   working-directory: ./react-version
+      # - name: start the react App
+      #   run: npm start && npx wait-on http://localhost:3000 && npx cypress run
+      #   working-directory: ./react-version
+      #   # run: npm cypress run
+      #   # working-directory: ./react-version
       - name: create and migrate DB
         run: npm run init
         env:
