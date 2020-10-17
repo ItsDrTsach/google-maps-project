@@ -31,22 +31,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      # - name: install client dependencies , start the react app and test
-      #   run: |
-      #     npm i
-      #     npm start
-      #     npx wait-on http://localhost:3000
-      #     npm cypress run
-      #   working-directory: ./react-version
       - name: Setup node  (Node.js ${{ matrix.node-version }})
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install server dependencies
+      - name: install client dependencies
         run: npm ci
-        env:
-          NODE_ENV: "test"
-        working-directory: ./server
+        working-directory: ./react-version
+      - name: start the react App
+        run: npm ci
+        working-directory: ./react-version
+      - name: wait for the browser
+        run: npx wait-on http://localhost:3000
+        working-directory: ./react-version
+      - name: run cypress tests
+        run: npm cypress run
+        working-directory: ./react-version
       - name: create and migrate DB
         run: npm run init
         env:
