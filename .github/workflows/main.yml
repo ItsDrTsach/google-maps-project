@@ -43,6 +43,8 @@ jobs:
       #   working-directory: ./react-version
       #   # run: npm cypress run
       #   # working-directory: ./react-version
+      - name: install derver dependencies
+        run: npm ci
       - name: create and migrate DB
         run: npm run init
         env:
