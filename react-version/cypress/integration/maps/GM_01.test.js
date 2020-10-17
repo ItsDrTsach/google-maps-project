@@ -4,7 +4,6 @@ describe("Google Maps Tests", () => {
   });
 
   it("should be able to search and get to a city wiht auto-complete", () => {
-    cy.get("input").type("jeru");
-    cy.get('[aria-selected="false"]').first().click();
+    cy.get("h1").contains("For me");
   });
 });
