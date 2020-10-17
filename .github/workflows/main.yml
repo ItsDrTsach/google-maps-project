@@ -31,18 +31,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: install Client dependencies
-        run: npm ci
+      - name: install client dependencies , start the react app and test
+        run: |
+          npm ci
+          npm start
+          npx wait-on http://localhost:3000
+          npm cypress run
         working-directory: ./react-version
-      - name: install server dependencies
-        run: npm ci
-        working-directory: ./server
-      - name: setup the DB for the test
-        run: npx sequelize db:create && npx sequelize db:migrate
+      - name: install server dependencies , migrate db and run tests
+        run: |
+          npm ci
+          npx sequelize db:create
+          npx sequelize db:migrate
+          npm run test
         working-directory: ./server
         env:
           NODE_ENV: "test"
-      - name: test backend
-        run: npm run test-back
-      - name: test frontend
-        run: npm run test-front
