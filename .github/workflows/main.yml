@@ -16,7 +16,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    continue-on-error: true
     services:
       mysql:
         image: mysql:5.7
@@ -40,6 +40,8 @@ jobs:
         working-directory: ./server
       - name: setup the DB for the test
         run: npm run setup-db
+        env:
+          NODE_ENV: test
       - name: test backend
         run: npm run test-back
       - name: test frontend
