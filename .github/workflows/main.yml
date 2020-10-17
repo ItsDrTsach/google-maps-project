@@ -40,10 +40,10 @@ jobs:
       #   working-directory: ./react-version/
       - name: install server dependencies , migrate db and run tests
         run: |
+          cd ./server
           npm ci
           npx sequelize db:create
           npx sequelize db:migrate
           npm run test
-        working-directory: ./server/
         env:
           NODE_ENV: "test"
