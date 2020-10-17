@@ -44,10 +44,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install server dependencies , migrate db and run tests
         run: |
-          cd .\server\
           npm ci
           npx sequelize db:create
           npx sequelize db:migrate
           npm run test
         env:
           NODE_ENV: "test"
+        working-directory: .\server\
