@@ -50,4 +50,4 @@ jobs:
           npm run test
         env:
           NODE_ENV: "test"
-        working-directory: .\server\
+        working-directory: ./server/
