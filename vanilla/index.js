@@ -1,3 +1,4 @@
+// Functions
 let map; // initial the map at global scope
 
 function initMap() {
@@ -8,13 +9,9 @@ function initMap() {
     center: location,
   };
   map = new google.maps.Map(document.getElementById("map"), options);
-  addMarker(map, location, "third");
-  addMarker(map, { lat: 34.3, lng: 32.2 }, "second");
-  addMarker(map, { lat: 35, lng: 31 }, "fourth");
 }
 
 // Add marker function
-
 function addMarker(map, location, info) {
   let marker = new google.maps.Marker({
     map: map,
@@ -30,3 +27,16 @@ function addMarker(map, location, info) {
     infoWindow.open(map, marker);
   });
 }
+
+// fetch the dataBase
+
+fetch("http://localhost:4000/api/v1/city")
+  .then((res) => res.json())
+  .then((allCities) => {
+    console.log(allCities);
+    allCities.forEach((city) => {
+      console.log(city);
+      const { lat, long: lng, name, fullDescription } = city;
+      addMarker(map, { lat, lng }, fullDescription);
+    });
+  });

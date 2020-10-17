@@ -20,7 +20,7 @@ const swaggerOptions = {
       servers: [`http://localhost:${process.env.PORT}`],
     },
   },
-  apis: ["app.js"],
+  apis: ["app.js", "./api/v1/*.js"],
 };
 
 const swaggerDocs = swaggerJsDocs(swaggerOptions);
@@ -28,7 +28,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(cors());
 app.use(express.json());
-app.use(morgan("tiny"));
+app.use(morgan("dev"));
 
 app.use("/api", require("./api"));
 
