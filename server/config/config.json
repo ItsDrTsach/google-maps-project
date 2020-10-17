@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "1234567890",
+    "password": null,
     "database": "google_maps",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -11,7 +11,7 @@
   },
   "test": {
     "username": "root",
-    "password": "1234567890",
+    "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",

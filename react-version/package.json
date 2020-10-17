@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress run",
+    "test": "npm start && npm start & npx wait-on http://localhost:3000 && npm cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
