@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ."
+    "start": "nodemon .",
+    "test": "node_modules/.bin/jest --",
+    "migrate": "node_modules/.bin/sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +19,13 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
+    "supertest": "^5.0.0",
     "swagger-jsdoc": "^4.3.0",
     "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "axios": "^0.20.0",
+    "jest": "^26.5.3",
     "nodemon": "^2.0.5",
     "sequelize-cli": "^6.2.0"
   }
